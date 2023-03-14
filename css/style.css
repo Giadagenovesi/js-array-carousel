@@ -9,14 +9,6 @@ img {
     max-width: 100%;
 }
 
-/* utilitys */
-.hidden {
-    display: none;
-}
-.item.active {
-    display: block;
-}
-
 /* Layout */
 .container {
     width: 100%;
@@ -63,6 +55,10 @@ img {
 }
 .next {
     bottom: 1%; 
+}
+/* utilitys */
+.item.active {
+    display: block;
 }
 
 
