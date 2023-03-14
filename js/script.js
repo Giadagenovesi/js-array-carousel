@@ -41,6 +41,18 @@ nextBtn.addEventListener ("click", function() {
 
         //Aggiungo classe active all'elemento successivo
         items[activeItemIndex].classList.add("active");
+
+        if (activeItemIndex === items.length - 1) {
+            //rimuovo classe active dall'elemento precedente
+            items[activeItemIndex].classList.remove("active");
+
+        // incremeto active index
+            activeItemIndex = 0;
+
+        //Aggiungo classe active all'elemento successivo
+        items[activeItemIndex].classList.add("active");
+
+        }
     }
 });
 
@@ -55,6 +67,7 @@ prevBtn.addEventListener ("click", function() {
     
         //Aggiungo classe active all'elemento successivo
         items[activeItemIndex].classList.add("active");
+        
     } 
 });
 
