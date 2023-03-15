@@ -22,8 +22,8 @@ sliderContainer.innerHTML += sliderItem;
 
 
 const items = document.getElementsByClassName("item");
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
+console.log(items);
+
 
 let activeItemIndex = 0;
 items[activeItemIndex].classList.add("active");
@@ -31,43 +31,37 @@ items[activeItemIndex].classList.add("active");
 // Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
 
 //bottone next
+const nextBtn = document.querySelector(".next");
 nextBtn.addEventListener ("click", function() {
+    
+    //rimuovo classe active dall'elemento precedente
+    items[activeItemIndex].classList.remove("active");
     if (activeItemIndex < items.length - 1) {
-        //rimuovo classe active dall'elemento precedente
-        items[activeItemIndex].classList.remove("active");
-
         // incremeto active index
         activeItemIndex++;
-
-        //Aggiungo classe active all'elemento successivo
-        items[activeItemIndex].classList.add("active");
-
-        if (activeItemIndex === items.length - 1) {
-            //rimuovo classe active dall'elemento precedente
-            items[activeItemIndex].classList.remove("active");
-
-        // incremeto active index
-            activeItemIndex = 0;
-
-        //Aggiungo classe active all'elemento successivo
-        items[activeItemIndex].classList.add("active");
-
-        }
+       
+    } else {
+        activeItemIndex = 0;
     }
+
+    //Aggiungo classe active all'elemento successivo
+    items[activeItemIndex].classList.add("active");
 });
 
 //bottone prev
+const prevBtn = document.querySelector(".prev");
 prevBtn.addEventListener ("click", function() {
-    if (activeItemIndex != 0 ) {
-        //rimuovo classe active dall'elemento precedente
-        items[activeItemIndex].classList.remove("active");
+//rimuovo classe active dall'elemento precedente
+    items[activeItemIndex].classList.remove("active");
+    if (activeItemIndex === 0 ) {
+        activeItemIndex = items.length -1;       
+    } else {
+         // diminuisco active index
+         activeItemIndex--;
+    }
 
-        // diminuisco active index
-        activeItemIndex--;
-    
-        //Aggiungo classe active all'elemento successivo
-        items[activeItemIndex].classList.add("active");
-        
-    } 
+     //Aggiungo classe active all'elemento successivo
+     items[activeItemIndex].classList.add("active"); 
 });
+
 
